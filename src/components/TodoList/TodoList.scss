@@ -14,7 +14,7 @@
 }
 
 .todo-list.failed:empty:after {
-  content: 'Нет задач на выполнение';
+  content: 'Tasks list is empty';
 }
 
 .todo-list.failed:after {
@@ -31,7 +31,7 @@
 }
 
 .todo-list.completed:empty:after {
-  content: 'Нет выполненых задач';
+  content: 'Completed list is empty';
 }
 
 .todo-list.completed:before {

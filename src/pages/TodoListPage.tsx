@@ -1,5 +1,4 @@
 import Form from "../components/Form/Form.tsx";
-import Header from "../components/Header/Header.tsx";
 import TodoList from "../components/TodoList/TodoList.tsx";
 import type {Todo} from "../components/TodoList/types.ts";
 import {useState} from "react";
@@ -38,7 +37,6 @@ const TodoListPages = ()=>{
 
     return (
         <>
-            <Header />
             <Form createTodo={createTodo} />
             <TodoList todoLists={todos}
                       updateTodo={updateTodo}

@@ -1,17 +1,15 @@
-import type {Todo} from "../components/TodoList/types.ts";
 import {Link} from "react-router-dom";
-
-interface ComponentProps{
-    todos:Todo[]
-}
-
-const HomePage = ({todos}:ComponentProps) => {
+import {useSelector} from "react-redux";
+import type {RootState} from "../store.ts";
 
 
+const HomePage = () => {
+
+    const todoLists = useSelector((state:RootState)=> state.todoList.todos)
     return (
         <div className={'container'}>
             {
-                todos.map(item=>(
+                todoLists.map(item=>(
                     <Link to={'/list/'+item.id}>
                         {item.text}
                     </Link>

@@ -9,29 +9,9 @@ import ItemDetailsPage from "./pages/ItemDetailsPage.tsx";
 import HomePage from "./pages/HomePage.tsx";
 import type {Todo} from "./components/TodoList/types.ts";
 import Layouts from "./layouts/Layouts.tsx";
+import {Provider} from "react-redux";
+import {store} from "./store.ts";
 
-const todosLists: Todo[] = [
-    {
-        id: 0,
-        text: 'test 1',
-        isComplete: false
-    },
-    {
-        id: 1,
-        text: 'test 2',
-        isComplete: true
-    },
-    {
-        id: 2,
-        text: 'test 3',
-        isComplete: false
-    },
-    {
-        id: 3,
-        text: 'test 4',
-        isComplete: false
-    },
-]
 
 const router = createBrowserRouter([
     {
@@ -41,7 +21,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 index: true,
-                element: <HomePage todos={todosLists}/>
+                element: <HomePage />
             },
             {
                 path: '/todo',
@@ -52,7 +32,7 @@ const router = createBrowserRouter([
                 children: [
                     {
                         path: ':id',
-                        element: <ItemDetailsPage todos={todosLists}/>
+                        element: <ItemDetailsPage />
                     },
                 ]
 
@@ -68,6 +48,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <RouterProvider router={router}/>
+        <Provider store={store}>
+            <RouterProvider router={router}/>
+        </Provider>
     </StrictMode>,
 )

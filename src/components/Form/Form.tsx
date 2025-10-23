@@ -4,7 +4,8 @@ import {useState} from "react";
 const Form =(props:{createTodo:Function})=>{
     const [text, setText] = useState('');
 
-    const formSubmit = ()=>{
+    const formSubmit = (event:React.SyntheticEvent)=>{
+        event.preventDefault();
         if(text){
             props.createTodo(text)
             setText('')

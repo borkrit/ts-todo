@@ -1,19 +1,19 @@
 import {Link, useNavigate, useParams} from "react-router-dom";
 import type {Todo} from "../components/TodoList/types.ts";
 import {useEffect, useState} from "react";
+import {useSelector} from "react-redux";
+import type {RootState} from "../store.ts";
 
-interface ComponentProps{
-    todos:Todo[]
-}
 
-const ItemDetailsPage =({todos}:ComponentProps)=>{
+
+const ItemDetailsPage =()=>{
    const { id } = useParams();
    const navigate = useNavigate();
-
+    const todoLists = useSelector((state:RootState)=> state.todoList.todos)
    const [todo,setTodo] = useState<Todo>()
 
     useEffect(()=>{
-        const getActiveTodo = todos.find(item=> String(item.id) === id)
+        const getActiveTodo = todoLists.find(item=> String(item.id) === id)
 
         if(getActiveTodo){
             setTodo(getActiveTodo)
@@ -21,7 +21,7 @@ const ItemDetailsPage =({todos}:ComponentProps)=>{
             navigate(`/404`)
         }
 
-    },[todos,id,navigate])
+    },[todoLists,id,navigate])
 
     return(
         <div className="container">

@@ -1,19 +1,28 @@
 import './TodoListItem.scss'
 import type {Todo} from "../types.ts";
+
+import check from '../../../assets/images/check.png'
+import uncheck from '../../../assets/images/uncheck.png'
+import trash from '../../../assets/images/trash.png'
+import {TodoListItemControl, TodoListItemsControls, TodoListItemWrapper} from "./TodoListItem.style.ts";
+
+
 const TodoListItem = (props:{todoItem:Todo,deleteTodo:Function,updateTodo:Function})=>{
     return (
         <>
-            <li className="todo-list-item__wrapper">
+            <TodoListItemWrapper>
                 <span>{props.todoItem.text}</span>
-                <div className="todo-list-item__buttons">
-                    <button className="btn-trash"
+                <TodoListItemsControls>
+                    <TodoListItemControl
+                        icon={trash}
                         onClick={()=>props.deleteTodo(props.todoItem)}
-                    ></button>
-                    <button
+                    ></TodoListItemControl>
+                    <TodoListItemControl
+                        icon={props.todoItem.isComplete? check : uncheck}
                         onClick={()=>props.updateTodo(props.todoItem)}
-                        className={props.todoItem.isComplete?'btn-check':'btn-uncheck'}></button>
-                </div>
-            </li>
+                        ></TodoListItemControl>
+                </TodoListItemsControls>
+            </TodoListItemWrapper>
         </>
     )
 }

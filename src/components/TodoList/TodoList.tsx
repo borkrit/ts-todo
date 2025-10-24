@@ -1,6 +1,7 @@
-import './TodoList.scss'
+
 import TodoListItem from "./TodoListItem/TodoListItem.tsx";
 import type {Todo} from "./types.ts";
+import {CompletedList, FailedList, TodoContainer} from "./TodoList.style.ts";
 
 
 const TodoList = ({todoLists,updateTodo,deleteTodo}: { todoLists: Todo[], updateTodo: Function, deleteTodo: Function }) => {
@@ -17,18 +18,19 @@ const TodoList = ({todoLists,updateTodo,deleteTodo}: { todoLists: Todo[], update
         })
     }
     return (
-        <div className="todo-container">
-            <ul className="todo-list failed">
+        <TodoContainer>
+
+            <FailedList >
                 {
                     chekedItems('failed')
                 }
-            </ul>
-            <ul className="todo-list completed">
+            </FailedList>
+            <CompletedList >
                 {
                     chekedItems('completed')
                 }
-            </ul>
-        </div>
+            </CompletedList>
+        </TodoContainer>
     )
 }
 export default TodoList;

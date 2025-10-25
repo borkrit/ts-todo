@@ -7,9 +7,10 @@ export const HeaderBlock = styled.header`
     right: 0;
     left: 0;
     height: 50px;
-    background-color: #4682b4;
+    background-color: ${(props)=>props.theme.color.backgroundPrimary};
     display: flex;
     align-items: center;
+    transition: background-color .2s ease-in-out;
 `
 export const HeaderContainer = styled.div`
     max-width: 97%;

@@ -1,5 +1,5 @@
 import {Link, useNavigate, useParams} from "react-router-dom";
-import type {Todo} from "../components/TodoList/types.ts";
+import type {Todo} from "../models/types.ts";
 import {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 import type {RootState} from "../store.ts";

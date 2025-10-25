@@ -1,6 +1,4 @@
-import './TodoListItem.scss'
-import type {Todo} from "../types.ts";
-
+import type {Todo} from "../../../models/types.ts";
 import check from '../../../assets/images/check.png'
 import uncheck from '../../../assets/images/uncheck.png'
 import trash from '../../../assets/images/trash.png'

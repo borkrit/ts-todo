@@ -1,7 +1,6 @@
 import Form from "../components/Form/Form.tsx";
 import TodoList from "../components/TodoList/TodoList.tsx";
-import type {Todo} from "../components/TodoList/types.ts";
-import {useState} from "react";
+import type {Todo} from "../models/types.ts";
 import {useDispatch, useSelector} from "react-redux";
 import type {RootState} from "../store.ts";
 import {createAction, deleteAction, updateAction} from "../feature/todoList.ts";

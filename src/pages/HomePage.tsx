@@ -10,7 +10,7 @@ const HomePage = () => {
         <div className={'container'}>
             {
                 todoLists.map(item=>(
-                    <Link to={'/list/'+item.id}>
+                    <Link to={'/list/'+item.id} key={item.id}>
                         {item.text}
                     </Link>
                 ))

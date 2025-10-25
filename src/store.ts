@@ -2,6 +2,7 @@
 import {configureStore} from "@reduxjs/toolkit";
 
 import todoReducer from './feature/todoList.ts'
+import themeReducer from './feature/themeList.ts'
 
 const saveToLocalStorage = (state:RootState) => {
     try {
@@ -29,7 +30,8 @@ const loadFromLocalStorage = (key: string) => {
 
 export const store = configureStore({
     reducer: {
-        "todoList":todoReducer
+        "todoList":todoReducer,
+        "themeList":themeReducer
     },
     preloadedState:loadFromLocalStorage('appState')
 });
